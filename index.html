@@ -27,7 +27,7 @@
                     <input id="city" type="text" class="form-control" placeholder="salt lake city"
                         aria-label=" salt lake city">
                 </div>
-                <button class="btn btn-primary mb-3 w-100" type="button" id="search-btn">Search</button>
+                <button class="btn btn-primary mb-3 w-100" type="button" id="search-btn" onclick="getInfo()">Search</button>
                 <form id="history"></form>
             </div>
             <!--weather Board-->
@@ -36,27 +36,30 @@
                     <div class="col-12 border border-dark m-3 rounded">
                         <div class="row">
                             <div class="col-12">
-                                <span id="city-name" class="city-name">Salt Lake City</span>
+                                <span id="city-name" class="city-name"></span>
+                                <span id="date" class="date"></span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p id="temp">Temp:</p>
+                                <p id="temp"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p id="wind">Wind:</p>
+                                <p id="wind"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p id="humidity">Humidity:</p>
+                                <p id="humidity">
+                                    
+                                </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p id="uvi">UV Index:</p>
+                                <p id="uvidx"></p>
                             </div>
                         </div>
                     </div>
@@ -80,7 +83,7 @@
     </div>
     </div>
 <script src="./assets/js/script.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </body>
 
