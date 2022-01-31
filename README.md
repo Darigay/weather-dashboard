@@ -44,8 +44,8 @@ It forms the basis of the typical operational weather dashboard that can be used
 - Bootstrap Docs
 
 ## Deployed Application
--
--
+-https://darigay.github.io/weather-dashboard/ (GitHub Page)
+-https://github.com/Darigay/weather-dashboard (Github Repository)
 
 ## contact
 You can contact me at divya.arigay@gmail.com
