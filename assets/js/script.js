@@ -13,14 +13,14 @@ const historyEl = document.getElementById("history");
 const datenow= new Date();
 const [month, day, year]  = [datenow.getMonth()+1, datenow.getDate(), datenow.getFullYear()];
 
-let searchHistory = JSON.parse(localStorage.getItem("search-btn")) || [];
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 console.log(searchHistory);
 
 
-function getInfo() {
-    
+function getInfo(city) {
+    var searchCity = city || cityEl.value;
    
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityEl.value + '&appid=5942c39fd4705ad68a82c1a924a217bd')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&appid=5942c39fd4705ad68a82c1a924a217bd')
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -32,10 +32,10 @@ function getInfo() {
             currentweather(lat, lon);
            
         });
-    dailyForecast(cityEl.value);
+    dailyForecast(searchCity);
 
     const cityNameEl = document.getElementById("city-name");
-    cityNameEl.innerHTML = cityEl.value + "(" + month + "/" + day + "/" + year + ")";
+    cityNameEl.innerHTML = searchCity + "(" + month + "/" + day + "/" + year + ")";
 }
 
 function currentweather(lat,lon){
@@ -53,7 +53,17 @@ function currentweather(lat,lon){
         humidityEl.innerHTML="Humidity: "+humidity+ "%";
         
         //uvidxEl.setAttribute("class","badge badge-danger");
-        uvidxEl.innerHTML="UV Index: "+UVI;
+        uvidxEl.innerHTML="UV Index: <span id='uv-value'>"+ UVI + "</span>";
+         var uvValue = document.getElementById("uv-value");
+        if(UVI<4){
+            uvValue.style.backgroundColor="green";
+        }
+        else if(UVI>6){
+            uvValue.style.backgroundColor="red";
+        }
+        else{
+            uvValue.style.backgroundColor="yellow";
+        }
     });
 
 }
@@ -92,27 +102,11 @@ function dailyForecast(cityname) {
 
         });
     }
-     /*   var Temp = data.list[0].main.temp;
-        var wind = data.list[0].wind.speed;
-        var humidity = data.list[0].main.humidity;
-        var
-      //  oneEl.innerHTML = "Temp: "+Temp+ " &#176F";
-        
-      for(i=0;i<5;i++){
-          
-        oneEl.innerHTML = "Temp: "+Temp+ " &#176F" + "Wind: " + wind + "MPH" + "Humidity: " + humidity + "%";
-      } */
-
-    
-
-    //});
-
-
-    
+         
 
  searchEl.addEventListener("click",function(){
     const searchTerm=cityEl.value;
-  //  getInfo(searchTerm);
+   getInfo(searchTerm);
     searchHistory.push(searchTerm);
     localStorage.setItem("search",JSON.stringify(searchHistory));
     renderSearchHistory();
@@ -121,13 +115,14 @@ function dailyForecast(cityname) {
 function renderSearchHistory(){
     historyEl.innerHTML="";
     for(let i=0;i<searchHistory.length;i++){
-        const historyItem = document.createElement("city");
+        const historyItem = document.createElement("button");
         historyItem.setAttribute("type","text");
-        historyItem.setAttribute("readonly",true);
-        historyItem.setAttribute("class","form-control d-block bg-white");
+        historyItem.setAttribute("class","form-control d-block fw-bold bg-secondary mb-3");
         historyItem.setAttribute("value",searchHistory[i]);
+        historyItem.textContent=searchHistory[i];
         historyItem.addEventListener("click",function(){
-              //  getInfo(historyItem.value);
+              getInfo(historyItem.textContent);
+               //console.log(historyItem.textContent);
         })
         historyEl.append(historyItem);
     }

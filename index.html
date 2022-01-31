@@ -18,7 +18,7 @@
     <nav class="navbar navbar-dark bg-custom-1">
         <span class="navbar-brand mb-0 w-100 h1 medium text-center text-white">Weather Dashboard</span>
     </nav>
-    <div class="container w-100">
+    <div class="container-fluid w-100">
         <div class="row">
             <!-- Search Board-->
             <div class="col-3 bg-light">
@@ -28,7 +28,7 @@
                         aria-label=" salt lake city">
                 </div>
                 <button class="btn btn-primary mb-3 w-100" type="button" id="search-btn" onclick="getInfo()">Search</button>
-                <form id="history"></form>
+                <div id="history"></div>
             </div>
             <!--weather Board-->
             <div class="col-9">
@@ -67,18 +67,20 @@
                 </div>
 
                 <!-- 5-Day Forecast-->
-                <div class="row">
+                <div class="row fore-title">
                     <div class="col-12">
                         <h3>5-Day Forecast</h3>
                     </div>
                 </div>
-                <div class="row fore">
-                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
+               
+                <div class="row gx-5">
+                    <div class="col  forecast text-center text-white rounded"></div>
+                    <div class="col  forecast text-center text-white  rounded"></div>
+                    <div class="col   forecast text-center text-white  rounded "></div>
+                    <div class="col forecast text-center text-white  rounded "></div>
+                    <div class="col  forecast text-center text-white  rounded "></div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
