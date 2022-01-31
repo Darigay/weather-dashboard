@@ -18,7 +18,7 @@
     <nav class="navbar navbar-dark bg-custom-1">
         <span class="navbar-brand mb-0 w-100 h1 medium text-center text-white">Weather Dashboard</span>
     </nav>
-    <div class="container w-100 m-0 p-0">
+    <div class="container w-100">
         <div class="row">
             <!-- Search Board-->
             <div class="col-3 bg-light">
@@ -38,6 +38,7 @@
                             <div class="col-12">
                                 <span id="city-name" class="city-name"></span>
                                 <span id="date" class="date"></span>
+                                <img id="current-pic" src ="" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -71,19 +72,18 @@
                         <h3>5-Day Forecast</h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col forecast bg-dark text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-dark text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-dark text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-dark text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-dark text-white ml-3 mb-3 rounded"></div>
+                <div class="row fore">
+                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast text-white ml-3 mb-3 rounded"></div>
                 </div>
             </div>
         </div>
     </div>
     </div>
 <script src="./assets/js/script.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </body>
 
