@@ -34,7 +34,9 @@ It forms the basis of the typical operational weather dashboard that can be used
 
 ## ScreenShot of website
 
+![weather1](https://user-images.githubusercontent.com/94805706/151736769-348ea25c-b4a6-4318-8f6b-d431070637a1.jpeg)
 
+![weather2](https://user-images.githubusercontent.com/94805706/151736776-de096cfe-57b8-4a20-aada-708b9a30d947.jpeg)
 
 ## Resources
 - W3schools.com
